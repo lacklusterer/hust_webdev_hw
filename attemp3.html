@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="container2">
+
+<! -- start of left pane -->
+<div class="left-container">
+
+    <! -- start of profile -->
+    <div class="profile">
+        <div class="banner">
+        <! -- Banner content goes here -->
+        <img src="https://hust.edu.vn/uploads/sys/dao-tao/2019/05/resized-hust.443137.20295.jpg" alt="Banner Image">
+        </div>
+        <div class="avatar">
+        <! -- Avatar content goes here -->
+        <img src="Example.jpg" alt="Avatar Image">
+        </div>
+        <div class="profile-info">
+        <p>MSSV: 20210582</p>
+        <p>Họ tên: Nguyễn Nhật Minh</p>
+        <p>Lớp: An toàn không gian số - K66</p>
+        <p>Email: minh.nn210582@sis.hust.edu.vn</p>
+        <p>Email cá nhân: nguyennhatminh.025@gmail.com</p>
+        </div>
+    </div>
+    <! -- end of profile -->
+
+    <! -- start of info box1 -->
+    <div class="controls">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#trangthai">Trạng thái</a></li>
+            <li><a data-toggle="tab" href="#quanly">Quản lý</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="trangthai" class="tab-pane fade in active">
+                <h3>Trạng thái</h3>
+                <p>Nội dung trạng thái.</p>
+            </div>
+            <div id="quanly" class="tab-pane fade">
+                <h3>Quản lý</h3>
+                <p>Nội dung quản lý.</p>
+            </div>
+        </div>
+    </div>
+    <! -- end of info box1 -->
+</div>
+<! -- end of left pane -->
+
+<! -- info-box -->
+<div class="info-box">
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#thongtin">Thông tin</a></li>
+        <li><a data-toggle="tab" href="#thongtin1">Thông tin 1</a></li>
+        <li><a data-toggle="tab" href="#thongtin2">Thông tin 2</a></li>
+        <li><a data-toggle="tab" href="#thongtin3">Thông tin 3</a></li>
+        <li><a data-toggle="tab" href="#thongtin4">Thông tin 4</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="thongtin" class="tab-pane fade in active">
+            <h3>Thông tin</h3>
+            <p>Thông tin.</p>
+        </div>
+        <div id="thongtin1" class="tab-pane fade">
+            <h3>Thông tin 1</h3>
+            <p>Thông tin 1.</p>
+        </div>
+        <div id="thongtin2" class="tab-pane fade">
+            <h3>Thông tin 2</h3>
+            <p>Thông tin 2.</p>
+        </div>
+    </div>
+</div>
+<! -- info-box end -->
+
+</div>
+<! -- end of part 1-->
+
+<div class="container2">
+    <div class="chart1">
+        <canvas id="myChart" style="width:50vw;max-width:750px"></canvas>
+
+        <script>
+        const xValues = ["Sky", "Shaded side", "Sunny side"];
+        const yValues = [150, 20, 80, 150];
+        const barColors = [
+            "#67b9c9",
+            "#5c4b2f",
+            "#bf9750",
+            "#67b9c9"
+        ];
+
+
+        new Chart("myChart", {
+          type: "pie",
+          data: {
+            labels: xValues,
+            datasets: [{
+              backgroundColor: barColors,
+              data: yValues
+            }]
+          },
+          options: {
+            title: {
+              display: true,
+              text: "World Wide Wine Production 2018"
+            }
+          }
+        });
+        </script>
+    </div>
+    <div class="chart2">
+        <canvas id="myChart2" style="width:50vw;max-width:750px"></canvas>
+        <script>
+            const xValues2 = ["Windows 1", "Windows 3.1", "Windows 95", "Windows XP", "Windows", "Windows 7", "Windows 8", "Windows 10", "Windows 11"];
+            const yValues2 = [1, 3.1, 95, 0, 0, 7, 8, 10, 11];
+            const barColors2 = "blue";
+
+        new Chart("myChart2", {
+          type: "bar",
+          data: {
+            labels: xValues2,
+            datasets: [{
+              backgroundColor: barColors2,
+              data: yValues2
+            }]
+          },
+          options: {
+            legend: {display: false},
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }],
+            }
+          }
+        });
+        </script> 
+    </div>
+</body>
+</html>

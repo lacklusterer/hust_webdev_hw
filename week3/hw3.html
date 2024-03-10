@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <script>
+      function validateForm() {
+
+        var name = document.getElementById('name').value;
+        var phone = document.getElementById('phone').value;
+        var email = document.getElementById('email').value;
+        let statusArr = [false, false, false];
+
+        function validateName(name) {
+          return name.length !== 0;
+        }
+
+        function validatePhone(phone) {
+          const phoneRegex = /^\d{10,11}$/;
+          return phoneRegex.test(phone);
+        }
+
+        function validateEmail(email) {
+          const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+          return emailRegex.test(email);
+        }
+
+        statusArr[0] = validateName(name);
+        statusArr[1] = validatePhone(phone);
+        statusArr[2] = validateEmail(email);
+
+        var validity = statusArr.map(bool => bool ? 'valid' : 'invalid');
+
+        var heading = document.getElementById('heading');
+        heading.innerHTML = 'Name: ' + validity[0] +
+                            '<br>Phone: ' + validity[1] +
+                            '<br>Email: ' + validity[2];
+
+        return false;
+      }
+    </script>
+  </head>
+
+  <body>
+
+    <form onsubmit="return validateForm()">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name">
+      <br>
+      <label for="phone">Phone:</label>
+      <input type="tel" name="phone" id="phone">
+      <br>
+      <label for="email">Email:</label>
+      <input type="text" name="email" id="email">
+      <br>
+      <input type="submit" value="Submit">
+    </form>
+
+    <h2 id="heading">Real?</h2>
+
+    <h2 id="status"></h2>
+  </body>
+
+</html>
